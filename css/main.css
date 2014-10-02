@@ -1,0 +1,155 @@
+/*************** BODY ****************/
+*{
+}
+html,body{
+	/*letra de 16px*/
+}
+/*************** MENU ****************/
+
+.menu-container #logo-menu{
+   margin: 1em 35%;
+}
+.menu{
+    border-bottom: 1px solid #444;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+	/*#444 
+	  padding de 40px*/
+}
+ .menu li{
+    float: none !important;
+     width: 100%;
+     text-align: center;
+	/* padding de 10px */
+}
+ .menu li a{
+     transition: all 0.3s;
+	/*#FCB95B*/
+}
+ .menu li a:hover{
+	/*#F5DFCE*/
+}
+
+/********** MAIN CONTAINER ***********/
+.main-container{
+    width: 200%;
+}
+.main-container .seccion{
+    border-right: 1px dotted #444;
+   
+}
+.main-container .seccion img{
+    padding: 10% ;
+}
+.main-container .seccion h2{
+}
+.menu-container {
+    width: 13%;
+    position: fixed !important;
+    height: 100%;
+}
+@media (max-width: 760px) {
+   .menu-container {
+    width: 200%;
+    position: relative!important;
+    height: 10%;
+} 
+}
+.nopading-left-rigth{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/***********************************************************************/
+    /*                  Menu Lateral                                         */
+    /***********************************************************************/
+.animate {
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+
+.nav-controller {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    padding: 5px 6px 1px;
+    border: 5px solid rgb(51, 51, 51);
+    color: rgb(51, 51, 51);
+    border-radius: 25px;
+    font-size: 12pt;
+    cursor: pointer;
+    z-index: 300;
+}
+
+nav ~ .nav-controller > .controller-open {
+    display: inline-block;
+}
+
+nav ~ .nav-controller > .controller-close {
+    display: none;
+}
+nav.focus ~ .nav-controller > .controller-open {
+    display: none;
+}
+
+nav.focus ~ .nav-controller > .controller-close {
+    display: inline-block;
+}
+
+nav {
+    position: fixed;
+    top: 0px;
+    left: -15%;
+    padding-top: 65px;
+    padding-bottom: 15px;
+    height: 100%;
+    max-width: 200px;
+    text-align: left;
+    background-color: rgb(255, 255, 255);
+    box-shadow: -3px 0px 3px 0px rgba(160, 160, 160, 0.30);
+    z-index: 100;    
+    overflow: auto;
+    height: 100%;
+}
+
+nav.focus {
+    left: 0px;
+}
+
+nav > .divider {
+    content: '';
+    border-bottom: 1px solid rgb(230, 230, 230);
+    max-height: 1px;
+    overflow: hidden;
+    margin: 15px 0px;
+}
+
+nav > h4,
+nav > p,
+nav > ul {
+    padding: 0px 10px;
+}
+
+nav > h4 {
+    font-family: 'Anton', sans-serif;
+}
+
+nav > ul {
+    list-style: none;
+}
+nav > ul > li {
+    margin: 5px 0px;   
+}
+nav > ul > li > a {
+    color: rgb(190, 190, 190);   
+}
+nav > ul > li > a:hover {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: rgb(51, 51, 51);
+    text-decoration: none;
+}
