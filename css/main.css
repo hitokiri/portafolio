@@ -14,7 +14,7 @@ html,body{
     padding-left: 0;
     padding-right: 0;
     width: 100%;
-	/*#444 
+	/*#444
 	  padding de 40px*/
 }
  .menu li{
@@ -33,11 +33,15 @@ html,body{
 
 /********** MAIN CONTAINER ***********/
 .main-container{
-    width: 200%;
+    width: 250%;
 }
 .main-container .seccion{
     border-right: 1px dotted #444;
-   
+    /*overflow-y: auto;*/
+    overflow-y: auto;
+    overflow-style: move;
+    height: 700px;
+
 }
 .main-container .seccion img{
     padding: 10% ;
@@ -54,7 +58,7 @@ html,body{
     width: 200%;
     position: relative!important;
     height: 10%;
-} 
+}
 }
 .nopading-left-rigth{
     padding-left: 0 !important;
@@ -111,7 +115,7 @@ nav {
     text-align: left;
     background-color: rgb(255, 255, 255);
     box-shadow: -3px 0px 3px 0px rgba(160, 160, 160, 0.30);
-    z-index: 100;    
+    z-index: 100;
     overflow: auto;
     height: 100%;
 }
@@ -142,14 +146,25 @@ nav > ul {
     list-style: none;
 }
 nav > ul > li {
-    margin: 5px 0px;   
+    margin: 5px 0px;
 }
 nav > ul > li > a {
-    color: rgb(190, 190, 190);   
+    color: rgb(190, 190, 190);
 }
 nav > ul > li > a:hover {
     font-size: 1.1em;
     font-weight: 700;
     color: rgb(51, 51, 51);
     text-decoration: none;
+}
+/*      seccion de el blog      */
+.post-active:first-child{
+    border-radius: 0 !important;
+}
+.post-active:last-child{
+    border-radius: 0 !important;
+}
+#seccionBlog{
+    padding-right: 0;
+    padding-left: 0
 }

@@ -42,19 +42,29 @@
     <span class="[ glyphicon glyphicon-remove ] controller-close"></span>
 </div>
 	<!-- menu-container -->
-<div class="row main-container col-lg-offset-2">
+<div class="row main-container col-lg-offset-1">
 		<div class="seccion col-lg-2 col-md-2 col-xs-2" id="seccionInicio">
+        <h1>Especialidades</h1>
 		    <img src="img/logo2.png" alt="">
 		</div><!-- seccion -->
-		<div class="seccion col-lg-2 col-md-2 col-xs-2" id="seccionBlog">Blog</div><!-- seccion -->
-		<div class="seccion col-lg-2 col-md-2 col-xs-2" id="seccionTrabajo">Trabajo</div><!-- seccion -->
-		<div class="seccion col-lg-2 col-md-2 col-xs-2" id="seccionAcerca">Acerca de</div><!-- seccion -->
-		<div class="seccion col-lg-2 col-md-2 col-xs-2" id="seccionContacto">Contacto</div><!-- seccion -->
+		<div class="seccion col-lg-2 col-md-2 col-xs-2 " id="seccionBlog"><h1>Blog</h1>
+            <div class="list-group" id="post"></div>
+        </div><!-- seccion -->
+		<div class="seccion col-lg-2 col-md-2 col-xs-2" id="seccionTrabajo"><h1>Trabajo</h1></div><!-- seccion -->
+		<div class="seccion col-lg-2 col-md-2 col-xs-2" id="seccionAcerca"><h1>Acerca de</h1></div><!-- seccion -->
+		<div class="seccion col-lg-2 col-md-2 col-xs-2" id="seccionContacto"><h1>Contacto</h1></div><!-- seccion -->
 		<!-- main container -->
 </div>
-	
+
    <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
 	<script src="js/main.js"></script>
+    <script src="js/rss.js"></script>
+    <script>
+        $(document).ready(function() {
+            // $('.post').RssPorta('https://www.googleapis.com/blogger/v3/blogs/7610380627270839038?key=AIzaSyCZsHhv72zpjDni3ZT1Sw6uGIGEQCmgqCw');
+            $('#post').RssPorta('https://www.googleapis.com/blogger/v3/blogs/7610380627270839038/posts?key=AIzaSyCZsHhv72zpjDni3ZT1Sw6uGIGEQCmgqCw');
+        });
+    </script>
 </body>
 </html>
