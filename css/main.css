@@ -38,9 +38,7 @@ html,body{
 .main-container .seccion{
     border-right: 1px dotted #444;
     /*overflow-y: auto;*/
-    overflow-y: auto;
-    overflow-style: move;
-    height: 700px;
+    height: 650px;
 
 }
 .main-container .seccion img{
@@ -157,6 +155,22 @@ nav > ul > li > a:hover {
     color: rgb(51, 51, 51);
     text-decoration: none;
 }
+
+/*===============================================
+
+        Seccion abilidades
+
+=================================================*/
+#imagen-porta{
+    width: 100%
+}
+
+
+
+
+
+
+
 /*      seccion de el blog      */
 .post-active:first-child{
     border-radius: 0 !important;
@@ -164,7 +178,25 @@ nav > ul > li > a:hover {
 .post-active:last-child{
     border-radius: 0 !important;
 }
-#seccionBlog{
+#seccionBlog, #seccionTrabajo{
     padding-right: 0;
-    padding-left: 0
+    padding-left: 0;
+}
+.texto-post{
+    height: 4em;
+    overflow: hidden;
+    margin-bottom: 1em;
+}
+
+/*===============================================
+
+        Seccion trabajo
+
+=================================================*/
+
+#seccionTrabajo{
+    padding-left: 1em
+}
+.datos-trabajo{
+    height: 12em;
 }

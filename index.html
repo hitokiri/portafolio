@@ -6,33 +6,34 @@
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/bootstrap.css">
 </head>
-<body>
+<body >
 
 <nav class="animate">
-    <p>Mouse0270 created this snippet on <strong>Bootsnipp</strong> network.</p>
+    <p>Edgar Joaquin Martinez<strong>(Hiko_Hitokiri)</strong></p>
     <ul>
         <li>
-            <a href="https://twitter.com/mouse0270">@mouse0270 on twitter</a>
+            <a href="">Especialidades</a>
         </li>
         <li>
-            <a href="https://facebook.com/rem.mcintosh">Learn More about me on Facebook</a>
+            <a href="">Blog</a>
         </li>
         <li>
-            <a href="http://bootsnipp.com/mouse0270">Snippets</a>
+            <a href="">Projectos</a>
         </li>
         <li>
-            <a href="https://github.com/mouse0270">Projects</a>
+            <a href="">Acercade</a>
         </li>
         <li>
-            <a href="http://bootsnipp.com/user/snippets/www.linkedin.com/in/remcintosh/">Résumé</a>
+            <a href="">Contacto</a>
         </li>
     </ul>
     <div class="divider"></div>
-    <h4>Thanks To</h4>
+    <h4>Mas</h4>
     <ul>
         <li>
-            <a href="https://twitter.com/BootSnipp">@BootSnipp on twitter</a>
-            <a href="https://twitter.com/Svbtle">@Svbtle on twitter</a>
+            <a href="">g+</a>
+            <br>
+            <a href="https://twitter.com/"> on twitter</a>
         </li>
     </ul>
 </nav>
@@ -45,25 +46,67 @@
 <div class="row main-container col-lg-offset-1">
 		<div class="seccion col-lg-2 col-md-2 col-xs-2" id="seccionInicio">
         <h1>Especialidades</h1>
-		    <img src="img/logo2.png" alt="">
+		    <img src="img/Veigar_Splash_0.jpg" alt="" id='imagen-porta'>
 		</div><!-- seccion -->
-		<div class="seccion col-lg-2 col-md-2 col-xs-2 " id="seccionBlog"><h1>Blog</h1>
-            <div class="list-group" id="post"></div>
+		<div class="seccion col-lg-2 col-md-2 col-xs-2 " id="seccionBlog">
+            <h1>Blog</h1>
+            <div class="seccionScroll-inner">
+                <div class="list-group" id="blog" ng-app='PortafolioBlog' ng-controller="BlogCtrl" >
+                    <div class="row datos-blog list-group-item" ng-repeat="_data in datos1.items" >
+                        <div class="col-lg-12 col-xs-12 col-md-12 titulo-trabajos">
+                            <h2>{{_data.title}}</h2>
+                        </div>
+                        <div class="col-lg-12 col-xs-12 col-md-12 texto-post" >
+                                {{_data.content | limitTo : 195 | quitar}}
+                        </div>
+                        <div class='col-lg-12 col-xs-12 col-md-12'>
+                            <a href="{{_data.url}}" class="btn btn-primary" target="_blank">Ver Post</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div><!-- seccion -->
-		<div class="seccion col-lg-2 col-md-2 col-xs-2" id="seccionTrabajo"><h1>Trabajo</h1></div><!-- seccion -->
+		<div class="seccion col-lg-2 col-md-2 col-xs-2" id="seccionTrabajo">
+            <h1>Trabajo</h1>
+            <div class="seccionScroll-inner">
+                <div class="list-group" id="trabajos" ng-app='Portafolio' ng-controller="TrabajoCtrl" >
+                    <div class="row datos-trabajo" ng-repeat="data in datos" >
+                        <div class="col-lg-12 col-xs-12 col-md-12 titulo-trabajos">
+                            <h2>{{data.name}}</h2>
+                        </div>
+                        <div class="col-lg-12 col-xs-12 col-md-12">
+
+                        </div>
+                        <div class='col-lg-12 col-xs-12 col-md-12'>
+                            <a href="{{data.html_url}}" class="btn btn-primary" target="_blank">Source</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- seccion -->
 		<div class="seccion col-lg-2 col-md-2 col-xs-2" id="seccionAcerca"><h1>Acerca de</h1></div><!-- seccion -->
 		<div class="seccion col-lg-2 col-md-2 col-xs-2" id="seccionContacto"><h1>Contacto</h1></div><!-- seccion -->
 		<!-- main container -->
+        <!--  ng-bind-html="page.content"-->
 </div>
-
-   <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/angular/angular.min.js"></script>
+    <script src="js/angular/angular-route.js"></script>
+    <script src="js/angular/angular-resource.js"></script>
+    <script src="js/angular/angular-sanitize.min.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
 	<script src="js/main.js"></script>
-    <script src="js/rss.js"></script>
+    <script src="js/jquery.slimscroll.js"></script>
     <script>
         $(document).ready(function() {
             // $('.post').RssPorta('https://www.googleapis.com/blogger/v3/blogs/7610380627270839038?key=AIzaSyCZsHhv72zpjDni3ZT1Sw6uGIGEQCmgqCw');
-            $('#post').RssPorta('https://www.googleapis.com/blogger/v3/blogs/7610380627270839038/posts?key=AIzaSyCZsHhv72zpjDni3ZT1Sw6uGIGEQCmgqCw');
+            // $('#post').RssPorta();
+            // $('#trabajo').Github();
+            angular.bootstrap(document.getElementById("trabajos"),['Portafolio']);
+            $('.seccionScroll-inner').slimScroll({
+                height: '580px'
+            });
         });
     </script>
 </body>
