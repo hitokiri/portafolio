@@ -1,0 +1,114 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mi portafolio</title>
+	<link rel="stylesheet" href="{% static "css/main.css" %}">
+	<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+</head>
+<body >
+
+<nav class="animate">
+    <p>Edgar Joaquin Martinez<strong>(Hiko_Hitokiri)</strong></p>
+    <ul>
+        <li>
+            <a href="">Especialidades</a>
+        </li>
+        <li>
+            <a href="">Blog</a>
+        </li>
+        <li>
+            <a href="">Projectos</a>
+        </li>
+        <li>
+            <a href="">Acercade</a>
+        </li>
+        <li>
+            <a href="">Contacto</a>
+        </li>
+    </ul>
+    <div class="divider"></div>
+    <h4>Mas</h4>
+    <ul>
+        <li>
+            <a href="">g+</a>
+            <br>
+            <a href="https://twitter.com/"> on twitter</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="nav-controller">
+    <span class="[ glyphicon glyphicon-chevron-down ] controller-open"></span>
+    <span class="[ glyphicon glyphicon-remove ] controller-close"></span>
+</div>
+	<!-- menu-container -->
+<div class="row main-container col-lg-offset-1">
+		<div class="seccion col-lg-2 col-md-2 col-xs-2" id="seccionInicio">
+        <h1>Especialidades</h1>
+		    <img src="img/Veigar_Splash_0.jpg" alt="" id='imagen-porta'>
+		</div><!-- seccion -->
+		<div class="seccion col-lg-2 col-md-2 col-xs-2 " id="seccionBlog">
+            <h1>Blog</h1>
+            <div class="seccionScroll-inner">
+                <div class="list-group" id="blog" ng-app='PortafolioBlog' ng-controller="BlogCtrl" >
+                    <div class="row datos-blog list-group-item" ng-repeat="data in datos1.items" >
+                        <div class="col-lg-12 col-xs-12 col-md-12 titulo-trabajos">
+                            <h2>{{data.title}}</h2>
+                        </div>
+                        <div class="col-lg-12 col-xs-12 col-md-12 texto-post" >
+                                {{data.content}}
+                        </div>
+                        <div class='col-lg-12 col-xs-12 col-md-12'>
+                            <a href="{{data.url}}" class="btn btn-primary" target="_blank">Ver Post</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- seccion -->
+		<div class="seccion col-lg-2 col-md-2 col-xs-2" id="seccionTrabajo">
+            <h1>Trabajo</h1>
+            <div class="seccionScroll-inner">
+                <div class="list-group" id="trabajos" ng-app='Portafolio' ng-controller="TrabajoCtrl" >
+                    <div class="row datos-trabajo" ng-repeat="data in datos" >
+                        <div class="col-lg-12 col-xs-12 col-md-12 titulo-trabajos">
+                            <h2>{{data.name}}</h2>
+                        </div>
+                        <div class="col-lg-12 col-xs-12 col-md-12">
+
+                        </div>
+                        <div class='col-lg-12 col-xs-12 col-md-12'>
+                            <a href="{{data.html_url}}" class="btn btn-primary" target="_blank">Source</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- seccion -->
+		<div class="seccion col-lg-2 col-md-2 col-xs-2" id="seccionAcerca"><h1>Acerca de</h1></div><!-- seccion -->
+		<div class="seccion col-lg-2 col-md-2 col-xs-2" id="seccionContacto"><h1>Contacto</h1></div><!-- seccion -->
+		<!-- main container -->
+        <!--  ng-bind-html="page.content"-->
+</div><!--
+    <script src="{% static "js/angular/angular.min.js" %}"></script>
+    <script src="{% static "js/angular/angular-route.js" %}"></script>
+    <script src="{% static "js/controller.js" %}"></script> -->
+    <script src="{% static "js/jquery-1.11.1.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.js" %}"></script>
+	<script src="{% static "js/main.js" %}"></script>
+    <script src="{% static "js/jquery.slimscroll.js" %}"></script>
+
+    <script>
+        $(document).ready(function() {
+            // $('.post').RssPorta('https://www.googleapis.com/blogger/v3/blogs/7610380627270839038?key=AIzaSyCZsHhv72zpjDni3ZT1Sw6uGIGEQCmgqCw');
+            // $('#lol').RssPorta();
+            // $('#trabajo').Github();
+            
+            angular.bootstrap(document.getElementById("trabajos"),['Portafolio']);
+            $('.seccionScroll-inner').slimScroll({
+                height: '580px'
+            });
+        });
+    </script>
+</body>
+</html>
