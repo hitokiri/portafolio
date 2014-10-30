@@ -52,36 +52,45 @@
 		<div class="seccion col-lg-2 col-md-2 col-xs-2 " id="seccionBlog">
             <h1>Blog</h1>
             <div class="seccionScroll-inner">
-                <div class="list-group" id="blog" ng-app='PortafolioBlog' ng-controller="BlogCtrl" >
-                    <div class="row datos-blog list-group-item" ng-repeat="data in datos1.items" >
-                        <div class="col-lg-12 col-xs-12 col-md-12 titulo-trabajos">
-                            <h2>{{data.title}}</h2>
+                <div class="list-group" id="blog" >
+                    {% for data in blog.items %}
+                        <div class="row datos-blog list-group-item" ng-repeat="data in datos1.items" >
+                            <div class="col-lg-12 col-xs-12 col-md-12 titulo-trabajos">
+                                <h2>{{data.title}}</h2>
+                            </div>
+                            <div class="col-lg-12 col-xs-12 col-md-12 texto-post" >
+                                {% autoescape off %}
+                                    {{data.content|truncatechars_html:200}}
+                                {% endautoescape %}
+                                    
+                            </div>
+                            <div class='col-lg-12 col-xs-12 col-md-12'>
+                                <a href="{{data.url}}" class="btn btn-primary" target="_blank">Ver Post</a>
+                            </div>
                         </div>
-                        <div class="col-lg-12 col-xs-12 col-md-12 texto-post" >
-                                {{data.content}}
-                        </div>
-                        <div class='col-lg-12 col-xs-12 col-md-12'>
-                            <a href="{{data.url}}" class="btn btn-primary" target="_blank">Ver Post</a>
-                        </div>
-                    </div>
+                    {% endfor %}
+                    
                 </div>
             </div>
         </div><!-- seccion -->
 		<div class="seccion col-lg-2 col-md-2 col-xs-2" id="seccionTrabajo">
             <h1>Trabajo</h1>
             <div class="seccionScroll-inner">
-                <div class="list-group" id="trabajos" ng-app='Portafolio' ng-controller="TrabajoCtrl" >
-                    <div class="row datos-trabajo" ng-repeat="data in datos" >
-                        <div class="col-lg-12 col-xs-12 col-md-12 titulo-trabajos">
-                            <h2>{{data.name}}</h2>
-                        </div>
-                        <div class="col-lg-12 col-xs-12 col-md-12">
+                <div class="list-group" id="trabajos">
+                    {% for data in trabajo %}
+                        <div class="row datos-trabajo">
+                            <div class="col-lg-12 col-xs-12 col-md-12 titulo-trabajos">
+                                <h2>{{data.name}}</h2>
+                            </div>
+                            <div class="col-lg-12 col-xs-12 col-md-12">
 
+                            </div>
+                            <div class='col-lg-12 col-xs-12 col-md-12'>
+                                <a href="{{data.html_url}}" class="btn btn-primary" target="_blank">Source</a>
+                            </div>
                         </div>
-                        <div class='col-lg-12 col-xs-12 col-md-12'>
-                            <a href="{{data.html_url}}" class="btn btn-primary" target="_blank">Source</a>
-                        </div>
-                    </div>
+                    {% endfor %}
+                    
                 </div>
             </div>
         </div><!-- seccion -->
@@ -104,7 +113,7 @@
             // $('#lol').RssPorta();
             // $('#trabajo').Github();
             
-            angular.bootstrap(document.getElementById("trabajos"),['Portafolio']);
+            // angular.bootstrap(document.getElementById("trabajos"),['Portafolio']);
             $('.seccionScroll-inner').slimScroll({
                 height: '580px'
             });
