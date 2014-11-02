@@ -9,23 +9,23 @@
 </head>
 <body >
 
-<nav class="animate">
+<nav class="animate" >
     <p>Edgar Joaquin Martinez<strong>(Hiko_Hitokiri)</strong></p>
-    <ul>
+    <ul id="menu">
         <li>
-            <a href="">Especialidades</a>
+            <a href="#">Especialidades</a>
         </li>
         <li>
-            <a href="">Blog</a>
+            <a href="#">Blog</a>
         </li>
         <li>
-            <a href="">Projectos</a>
+            <a href="#">Projectos</a>
         </li>
         <li>
-            <a href="">Acercade</a>
+            <a href="#">Acercade</a>
         </li>
         <li>
-            <a href="">Contacto</a>
+            <a href="#">Contacto</a>
         </li>
     </ul>
     <div class="divider"></div>
@@ -47,7 +47,7 @@
 <div class="row main-container col-lg-offset-1">
 		<div class="seccion col-lg-2 col-md-2 col-xs-2" id="seccionInicio">
         <h1>Especialidades</h1>
-		    <img src="img/Veigar_Splash_0.jpg" alt="" id='imagen-porta'>
+		    <img src="{% static "img/Veigar_Splash_0.jpg" %}" alt="" id='imagen-porta'>
 		</div><!-- seccion -->
 		<div class="seccion col-lg-2 col-md-2 col-xs-2 " id="seccionBlog">
             <h1>Blog</h1>
@@ -106,9 +106,14 @@
     <script src="{% static "js/bootstrap.js" %}"></script>
 	<script src="{% static "js/main.js" %}"></script>
     <script src="{% static "js/jquery.slimscroll.js" %}"></script>
+    <script src="{% static "js/scroll.js" %}"></script>
 
     <script>
         $(document).ready(function() {
+            $("#menu a").on("click", function() {
+                console.log($(this).parent().index());
+                $(".seccion").eq($(this).parent().index()).scrollTo();
+            });
             // $('.post').RssPorta('https://www.googleapis.com/blogger/v3/blogs/7610380627270839038?key=AIzaSyCZsHhv72zpjDni3ZT1Sw6uGIGEQCmgqCw');
             // $('#lol').RssPorta();
             // $('#trabajo').Github();
